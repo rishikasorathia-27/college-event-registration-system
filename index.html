@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Event Registration</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="form-card">
+
+    <h2>🎉 College Event Registration</h2>
+
+    <!-- COUNT -->
+    <p class="count">Total Registrations: {{ total }}</p>
+
+    <p class="subtitle">Register for exciting university events</p>
+
+    <form action="/register" method="POST">
+
+        <label>Full Name</label>
+        <input type="text" name="full_name" required>
+
+        <label>Student ID</label>
+        <input type="text" name="student_id" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Phone</label>
+        <input type="text" name="phone" required>
+
+        <label>Department</label>
+        <select name="department" required>
+            <option disabled selected>Select Department</option>
+            <option>UIT</option>
+            <option>UID</option>
+            <option>USLM</option>
+            <option>UIM</option>
+        </select>
+
+        <label>Year</label>
+        <select name="year" required>
+            <option disabled selected>Select Year</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+
+        <label>Event</label>
+        <select name="event" required>
+            <option disabled selected>Select Event</option>
+            <option>Seminar & Workshop (Day 1 - 12 April 2026)</option>
+            <option>Cultural Event (Day 2 - 13 April 2026)</option>
+            <option>Hackathon (Day 3 - 14 April 2026)</option>
+        </select>
+
+        <button type="submit">🚀 Register Now</button>
+
+    </form>
+
+</div>
+
+<!-- 📊 TABLE BELOW FORM -->
+<div class="table-container">
+
+    <h2>📊 Registered Students</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Student ID</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Department</th>
+            <th>Year</th>
+            <th>Event</th>
+        </tr>
+
+        {% for row in data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>{{ row[6] }}</td>
+            <td>{{ row[7] }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>
